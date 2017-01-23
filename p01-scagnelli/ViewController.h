@@ -11,8 +11,14 @@
 @interface ViewController : UIViewController
 
 @property (strong, nonatomic) IBOutlet UILabel *label;
+@property (strong, nonatomic) IBOutlet UIView *infoView;
+@property (strong, nonatomic) IBOutlet UITextField *nameTextField;
+@property (strong, nonatomic) IBOutlet UISegmentedControl *timeSegment;
+@property (strong, nonatomic) IBOutlet UIButton *button;
+@property (strong, nonatomic) IBOutlet UIImageView *image;
 
-- (IBAction)changeText:(id)sender;
+- (IBAction)changeDisplay:(id)sender;
+- (IBAction)dismissKeyboard:(id)sender;
 
 @end
 

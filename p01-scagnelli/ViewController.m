@@ -17,6 +17,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    self.infoView.hidden = YES;
 }
 
 
@@ -26,7 +27,30 @@
 }
 
 
-- (IBAction)changeText:(id)sender {
-    [self.label setText:@"Eric"];
+- (IBAction)changeDisplay:(id)sender {
+    
+    if ([self.button.titleLabel.text isEqualToString:@"Enter Information"]){
+        self.infoView.hidden = NO;
+        [self.button setTitle:@"Display Info" forState:UIControlStateNormal];
+    }
+    else if ([self.button.titleLabel.text isEqualToString:@"Display Info"]){
+        NSString *newText;
+        if (self.timeSegment.selectedSegmentIndex == 0){
+            newText = [NSString stringWithFormat:@"Good Day %@!", self.nameTextField.text];
+            [self.image setImage:[UIImage imageNamed:@"sun"]];
+        }
+        else{
+            newText = [NSString stringWithFormat:@"Good Night %@!", self.nameTextField.text];
+            [self.image setImage:[UIImage imageNamed:@"moon"]];
+        }
+        [self.label setText:newText];
+        
+        self.infoView.hidden = YES;
+        [self.button setTitle:@"Enter Information" forState:UIControlStateNormal];
+    }
+}
+
+- (IBAction)dismissKeyboard:(id)sender {
+    [self resignFirstResponder];
 }
 @end
