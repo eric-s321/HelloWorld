@@ -1,1 +1,1 @@
-Functioning Hello World iOS App.  It contains a button and a label.  Press the button to have the label change text from "Hello World" to "Eric".
+
